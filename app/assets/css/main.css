@@ -1,0 +1,30 @@
+/* assets/css/main.css */
+@import "tailwindcss";
+
+@theme {
+  --color-text-primary: #313647;
+  --color-background-primary: #FFF;
+
+  --color-menu-background: #FF7A30;
+  --color-menu-hover-background: #E9E3DF;
+}
+
+* {
+  /* Nuxt @fonts จะรู้เองว่าต้องไปโหลดฟอนต์ Prompt มาให้ */
+  font-family: "Prompt", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+@layer base {
+    :host,
+    html {
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+    }
+}
+
+body {
+  background-color: var(--color-background-primary);
+  color: var(--color-text-primary);
+}
