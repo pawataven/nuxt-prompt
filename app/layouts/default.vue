@@ -1,16 +1,15 @@
 <script setup lang="ts">
-
-
+import NavigationBarVue from './NavigationBar.vue';
 </script>
 
 <template>
-  <div>
-    <header class="sticky z-50 w-full bg-white/95 backdrop-blur border-b border-slate-200">
+  <div class="flex h-screen bg-slate-50 overflow-hidden">
+    
+    <NavigationBarVue />
 
-    </header>
-
-    <main>
+    <main class="flex-1 overflow-y-auto relative">
       <slot />
     </main>
+    
   </div>
 </template>
