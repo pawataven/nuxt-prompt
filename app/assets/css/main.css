@@ -2,12 +2,48 @@
 @import "tailwindcss";
 
 @theme {
-  --color-text-primary: #313647;
-  --color-background-primary: #FFF;
+  /* Text */
+  --color-text-primary: #313647;      
+  --color-text-secondary: #6B7280;
+  --color-text-muted: #9CA3AF;
 
-  --color-menu-background: #FF7A30;
-  --color-menu-hover-background: #E9E3DF;
+  /* Background */
+  --color-background-primary: #FAFAF8;    
+  --color-background-secondary: #FFFFFF;  
+  --color-background-hover: #F3F4F6;
+
+  /* Primary (Brand / Action) */
+  --color-primary: #2563EB;           
+  --color-primary-hover: #1E40AF;
+  --color-primary-soft: #DBEAFE;
+
+  /* Accent (Friendly Highlight) */
+  --color-accent: #FF7A30;             
+  --color-accent-hover: #E8641C;
+  --color-accent-soft: #FFE8DA;
+
+  /* Menu / Navigation */
+  --color-menu-background: #FFFFFF;
+  --color-menu-hover-background: #F3F4F6;
+  --color-menu-active-background: #FFE8DA;
+  --color-menu-text: #313647;
+  --color-menu-text-active: #FF7A30;
+
+  /* Border / Divider */
+  --color-border-primary: #E5E7EB;
+  --color-border-secondary: #F3F4F6;
+
+  /* Status */
+  --color-success: #16A34A;
+  --color-warning: #F59E0B;
+  --color-error: #DC2626;
+
+  /* Premium */
+  --color-premium-border: #FF7A30;
+  --color-premium-background: #FFFBF5;
 }
+
+
 
 * {
   /* Nuxt @fonts จะรู้เองว่าต้องไปโหลดฟอนต์ Prompt มาให้ */
@@ -25,6 +61,6 @@
 }
 
 body {
-  background-color: var(--color-background-primary);
+background-color: var(--color-background-primary);
   color: var(--color-text-primary);
 }
