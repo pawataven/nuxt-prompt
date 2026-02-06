@@ -16,7 +16,7 @@
               <path d="M5 21h14"></path>
             </svg>
           </div>
-          <span class="text-xs font-bold uppercase tracking-wider">Premium Plan</span>
+          <span class="text-xs font-bold uppercase tracking-wider">Plus Plan</span>
         </div>
         <h4 class="font-extrabold text-lg mb-1">ปลดล็อกขีดจำกัด</h4>
         <p class="text-xs font-medium  mb-4 leading-relaxed">เข้าถึงฟีเจอร์พิเศษและสนับสนุนชุมชนของเรา</p><button
