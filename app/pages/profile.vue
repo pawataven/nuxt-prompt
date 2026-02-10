@@ -60,27 +60,36 @@ const onCategoryClick = (cat: string) => {
 
 <template>
   <!-- ================= PROFILE HEADER ================= -->
-  <div>
-    <ProfileCover />
+<div>
+  <ProfileCover />
 
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="relative -mt-20 flex gap-6">
-        <!-- Avatar -->
-        <ProfileAvatar />
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div
+      class="relative -mt-20 flex flex-col md:flex-row md:items-center gap-6"
+    >
+      <!-- Avatar -->
+      <ProfileAvatar />
 
-        <!-- Header Content -->
-        <div class="flex-1 flex justify-between">
-          <!-- ซ้าย: info -->
+      <!-- Content Row -->
+      <div
+        class="flex-1 flex flex-col md:flex-row md:items-center md:justify-between gap-4"
+      >
+        <!-- LEFT : INFO -->
+        <div class="flex-1">
           <ProfileInfo />
+        </div>
 
-          <!-- stats -->
-          <div class="flex items-start gap-4 ">
-            <ProfileStats />
-          </div>
+        <!-- RIGHT : STATS -->
+        <div
+          class="flex gap-3 md:gap-4 flex-wrap md:flex-nowrap md:justify-end"
+        >
+          <ProfileStats />
         </div>
       </div>
     </div>
   </div>
+</div>
+
 
   <!-- ================= TAB CONTROL ================= -->
   <ProfileTap
