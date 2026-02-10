@@ -1,5 +1,6 @@
 <script setup lang="ts">
-const props = defineProps<{
+
+export interface WindowProps {
   id: number;
   image: string;
   badge: string;
@@ -10,11 +11,24 @@ const props = defineProps<{
   authorName: string;
   views: string;
   likes: string;
-  isLiked?: boolean;
-  isSaved?: boolean;
+  isLiked?: boolean; 
+  isSaved?: boolean; 
+}
+
+const props = withDefaults(defineProps<WindowProps>(), {
+  isLiked: false,
+  isSaved: false
+});
+
+const emit = defineEmits<{
+  (e: 'click-card', id: number): void;
+  (e: 'filter-badge', badge: string): void;
+  (e: 'toggle-save', id: number): void;
+  (e: 'toggle-like', id: number): void;
+  (e: 'click-author', name: string): void;
 }>();
 
-const emit = defineEmits(['click-card', 'filter-badge', 'toggle-save', 'toggle-like', 'click-author']);
+// --- Event Handlers (Logic เดิม ไม่เปลี่ยนแปลง) ---
 
 const handleBadgeClick = (e: Event) => {
   e.stopPropagation();
