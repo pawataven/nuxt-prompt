@@ -11,7 +11,7 @@ const tabs = [
 </script>
 
 <template>
-  <div class="border-b border-slate-200 mt-10">
+  <div class="border-b border-slate-200 mt-10 p-4">
 
     <div class="flex gap-8 overflow-x-auto">
 
