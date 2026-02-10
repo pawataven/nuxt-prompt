@@ -6,7 +6,7 @@ import WindowDetail from '~/components/Explore/WindowDetail.vue';
 const isDetailOpen = ref(false);
 const selectedItem = ref<any>(null);
 
-// ข้อมูลจำลอง (Mock Data) - คงเดิม
+// ข้อมูลจำลอง (Mock Data)
 const promptItems = ref([
   {
     id: 1,
@@ -16,6 +16,7 @@ const promptItems = ref([
     categoryColor: 'bg-yellow-400',
     title: 'สคริปต์ Python วิเคราะห์ข้อมูล',
     description: 'Write a Python script using Pandas to read a CSV file, clean missing values...',
+    detailText: 'สคริปต์นี้ใช้สำหรับจัดการไฟล์ CSV ที่มีข้อมูลสูญหาย โดยจะทำการ Clean ข้อมูลอัตโนมัติและสรุปผลเชิงสถิติเบื้องต้นให้ทันที',
     authorName: 'DevThailand',
     views: '1.2k',
     likes: '85',
@@ -35,10 +36,11 @@ const promptItems = ref([
     categoryColor: 'bg-red-500',
     title: 'สร้างภาพพอร์ตเทรตแฟนตาซี',
     description: 'Portrait of a cyberpunk female warrior, neon lights, futuristic city background...',
+    detailText: 'Prompt สำหรับสร้างภาพตัวละครสไตล์ Cyberpunk ที่มีความละเอียดสูง เน้นแสงสีนีออนและฉากหลังที่เป็นเมืองแห่งอนาคต',
     authorName: 'FantasyCreator',
     views: '32k',
     likes: '4,120',
-    tags: ['Coding', 'React', 'Tailwind'],
+    tags: ['Art', 'Midjourney', 'Cyberpunk'],
     isLiked: true,
     isSaved: false,
     exampleImages: [
@@ -55,6 +57,7 @@ const promptItems = ref([
     categoryColor: 'bg-blue-400',
     title: 'โครงสร้าง React Component',
     description: 'Create a reusable React Button component...',
+    detailText: 'ตัวอย่างการเขียน React Component ที่สามารถนำกลับมาใช้ใหม่ได้ (Reusable) พร้อมการจัดการ Props และ TypeScript Interface',
     authorName: 'DevMaster',
     views: '9.8k',
     likes: '1,567',
@@ -73,6 +76,7 @@ const promptItems = ref([
     categoryColor: 'bg-gray-400',
     title: 'เขียนบทความ SEO ภาษาไทย',
     description: 'Act as an SEO specialist...',
+    detailText: 'คำสั่งสำหรับให้ AI สวมบทบาทเป็นผู้เชี่ยวชาญด้าน SEO เพื่อเขียนบทความภาษาไทยที่ติดอันดับการค้นหาได้ง่าย',
     authorName: 'ContentMaster',
     views: '8.7k',
     likes: '1,923',
@@ -88,6 +92,7 @@ const promptItems = ref([
     categoryColor: 'bg-pink-500',
     title: 'ออกแบบคาแรคเตอร์อนิเมะ',
     description: 'Character reference sheet...',
+    detailText: 'สร้าง Reference Sheet สำหรับตัวละครอนิเมะ แสดงมุมมองต่างๆ และรายละเอียดเครื่องแต่งกายอย่างครบถ้วน',
     authorName: 'AnimeFan_TH',
     views: '4.5k',
     likes: '620',
@@ -119,17 +124,18 @@ const onCategoryClick = (cat: string) => console.log('Category:', cat);
 </script>
 
 <template>
-  <main class="min-h-screen p-4 md:p-8 bg-[var(--color-background-primary)]">
+  <main class="min-h-screen p-4 md:p-8 bg-background-primary">
     <header class="mb-8 max-w-[1920px] mx-auto">
       <h1 class="text-3xl font-bold mb-2 text-center md:text-left text-text-primary">สำรวจไอเดียใหม่ๆ</h1>
       <p class="text-center md:text-left text-text-secondary">ค้นพบ Prompt ที่น่าสนใจจากครีเอเตอร์ทั่วโลก</p>
     </header>
 
-    <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-6 max-w-[1920px] mx-auto">
+    <section class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-5 gap-2 md:gap-6 mx-auto">
       <Window 
         v-for="item in promptItems" 
         :key="item.id"
         v-bind="item"
+        :detail-text="item.detailText" 
         @click-card="onCardClick"
         @filter-badge="onFilterBadge"
         @toggle-save="onToggleSave"
@@ -143,6 +149,7 @@ const onCategoryClick = (cat: string) => console.log('Category:', cat);
     v-if="selectedItem"
     :is-open="isDetailOpen"
     v-bind="selectedItem"
+    :detail-text="selectedItem.detailText"
     :tags="selectedItem.tags" 
     :example-images="selectedItem.exampleImages" 
     :related-item="suggestedItem"

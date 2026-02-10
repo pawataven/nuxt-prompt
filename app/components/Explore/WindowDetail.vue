@@ -10,6 +10,7 @@ interface WindowDetailProps {
   categoryColor: string;
   title: string;
   description: string;
+  detailText?: string;
   authorName: string;
   views: string;
   likes: string;
@@ -175,6 +176,7 @@ onUnmounted(() => {
                    {{ description }}
                  </p>
 
+                 
                  <div class="flex gap-3">
                     <button 
                       @click="handleCopy"
@@ -206,6 +208,15 @@ onUnmounted(() => {
                     </button>
                  </div>
               </div>
+              <div v-if="detailText" class="mb-10 p-6 bg-background-primary rounded-2xl border border-border-primary relative overflow-hidden">
+  <div class="flex items-center gap-2 mb-3">
+    <div class="w-1.5 h-4 bg-primary rounded-full"></div>
+    <h4 class="text-sm font-bold text-text-primary uppercase tracking-wide">รายละเอียดเพิ่มเติม</h4>
+  </div>
+  <p class="text-text-secondary text-base leading-relaxed font-medium">
+    {{ detailText }}
+  </p>
+</div>
 
               <div v-if="exampleImages && exampleImages.length > 0" class="mb-10">
                  <div class="flex items-center gap-2 mb-4">
@@ -319,8 +330,18 @@ onUnmounted(() => {
 .fade-enter-active, .fade-leave-active { transition: opacity 0.2s ease; }
 .fade-enter-from, .fade-leave-to { opacity: 0; }
 
-.custom-scroll::-webkit-scrollbar { width: 6px; }
-.custom-scroll::-webkit-scrollbar-track { background: transparent; }
-.custom-scroll::-webkit-scrollbar-thumb { background: #E5E7EB; border-radius: 10px; }
-.custom-scroll::-webkit-scrollbar-thumb:hover { background: #D1D5DB; }
+/* ซ่อน Scrollbar ทั้งหมด */
+.custom-scroll {
+  /* Firefox */
+  scrollbar-width: none;
+  /* IE and Edge */
+  -ms-overflow-style: none;
+}
+
+/* Chrome, Safari, Opera */
+.custom-scroll::-webkit-scrollbar {
+  display: none;
+  width: 0px;
+  background: transparent;
+}
 </style>
