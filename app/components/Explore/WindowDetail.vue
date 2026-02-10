@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import { watch, ref, nextTick } from 'vue'; 
-import Window from '~/components/Explore/Window.vue'; 
+import { ref, watch, nextTick, onUnmounted } from 'vue';
+import Window from '~/components/Explore/Window.vue';
 
-const props = defineProps<{
-  isOpen: boolean;
+interface WindowDetailProps {
   id: number;
   image: string;
   badge: string;
@@ -16,51 +15,91 @@ const props = defineProps<{
   likes: string;
   isLiked?: boolean;
   isSaved?: boolean;
-  exampleImages?: string[];
   tags?: string[];
+  exampleImages?: string[];
+  
+  isOpen: boolean;
   relatedItem?: any; 
+}
+
+const props = withDefaults(defineProps<WindowDetailProps>(), {
+  isLiked: false,
+  isSaved: false,
+  tags: () => [],
+  exampleImages: () => [],
+  relatedItem: undefined,
+});
+
+const emit = defineEmits<{
+  (e: 'close'): void;
+  (e: 'toggle-like', id: number): void;
+  (e: 'toggle-save', id: number): void;
+  (e: 'click-author', name: string): void;
+  (e: 'click-card', id: number): void;
+  (e: 'click-tag', tag: string): void;
 }>();
 
-const emit = defineEmits(['close', 'toggle-like', 'toggle-save', 'click-author', 'click-card', 'click-tag']);
-
+// --- Refs & State ---
 const scrollContainer = ref<HTMLElement | null>(null);
-
 const isCopied = ref(false);
 const showToast = ref(false);
+let copyTimeout: ReturnType<typeof setTimeout> | null = null;
 
+// --- Logic: Clipboard Copy ---
 const handleCopy = async () => {
+  if (!props.description) return;
+
   try {
     await navigator.clipboard.writeText(props.description);
     
-    // Trigger ปุ่มเปลี่ยนสี
-    isCopied.value = true;
+    // เคลียร์ Timeout เก่าถ้ารัวปุ่ม
+    if (copyTimeout) clearTimeout(copyTimeout);
     
-    // Trigger แจ้งเตือนด้านบน
+    isCopied.value = true;
     showToast.value = true;
 
-    // ตั้งเวลาปิด
-    setTimeout(() => {
+    copyTimeout = setTimeout(() => {
       isCopied.value = false;
       showToast.value = false;
     }, 2000);
+
   } catch (err) {
     console.error('Failed to copy:', err);
   }
 };
 
+// --- Logic: Scroll Management ---
+
+// Reset Scroll เมื่อเปลี่ยน Item
 watch(() => props.id, async () => {
-  await nextTick(); 
-  isCopied.value = false; 
+  // Reset Copy State
+  isCopied.value = false;
   showToast.value = false;
+  if (copyTimeout) clearTimeout(copyTimeout);
+
+  await nextTick();
   if (scrollContainer.value) {
     scrollContainer.value.scrollTo({ top: 0, behavior: 'smooth' });
   }
 });
 
-watch(() => props.isOpen, (val) => {
-  if (typeof document !== 'undefined') {
-    document.body.style.overflow = val ? 'hidden' : 'auto';
-  }
+// Body Scroll Lock (ป้องกันหน้าหลังเลื่อน)
+const lockBodyScroll = (isLocked: boolean) => {
+  if (typeof document === 'undefined') return; // SSR Guard
+  document.body.style.overflow = isLocked ? 'hidden' : '';
+};
+
+watch(
+  () => props.isOpen,
+  (isOpen) => {
+    lockBodyScroll(isOpen);
+  },
+  { immediate: true }
+);
+
+onUnmounted(() => {
+  lockBodyScroll(false);
+  if (copyTimeout) clearTimeout(copyTimeout);
 });
 </script>
 

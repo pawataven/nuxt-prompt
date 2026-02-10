@@ -2,45 +2,45 @@
 @import "tailwindcss";
 
 @theme {
-  /* Text */
-  --color-text-primary: #313647;      
-  --color-text-secondary: #6B7280;
-  --color-text-muted: #9CA3AF;
 
-  /* Background */
-  --color-background-primary: #FAFAF8;    
-  --color-background-secondary: #FFFFFF;  
-  --color-background-hover: #F3F4F6;
+  --color-text-primary: #1F2937;      
+  --color-text-secondary: #64748B;    
+  --color-text-muted: #94A3B8;         
 
-  /* Primary (Brand / Action) */
-  --color-primary: #2563EB;           
-  --color-primary-hover: #1E40AF;
-  --color-primary-soft: #DBEAFE;
 
-  /* Accent (Friendly Highlight) */
-  --color-accent: #FF7A30;             
-  --color-accent-hover: #E8641C;
-  --color-accent-soft: #FFE8DA;
+  --color-background-primary: #F8FAFC;   
+  --color-background-secondary: #FFFFFF; 
+  --color-background-hover: #F1F5F9;    
 
-  /* Menu / Navigation */
+  
+  --color-primary: #3B82F6;              
+  --color-primary-hover: #2563EB;       
+  --color-primary-soft: #EFF6FF;         
+
+
+  --color-accent: #F97316;              
+  --color-accent-hover: #EA580C;         
+  --color-accent-soft: #FFF7ED;          
+
+  
   --color-menu-background: #FFFFFF;
-  --color-menu-hover-background: #F3F4F6;
-  --color-menu-active-background: #FFE8DA;
-  --color-menu-text: #313647;
-  --color-menu-text-active: #FF7A30;
+  --color-menu-hover-background: #F8FAFC;
+  --color-menu-active-background: #EFF6FF; 
+  --color-menu-text: #334155;
+  --color-menu-text-active: #3B82F6;       
 
-  /* Border / Divider */
-  --color-border-primary: #E5E7EB;
-  --color-border-secondary: #F3F4F6;
 
-  /* Status */
-  --color-success: #16A34A;
-  --color-warning: #F59E0B;
-  --color-error: #DC2626;
+  --color-border-primary: #E2E8F0;       
+  --color-border-secondary: #F1F5F9;     
 
-  /* Premium */
-  --color-premium-border: #FF7A30;
-  --color-premium-background: #FFFBF5;
+
+  --color-success: #22C55E;              
+  --color-warning: #FBBF24;             
+  --color-error: #EF4444;                
+
+
+  --color-premium-border: #FDBA74;       
+  --color-premium-background: #FFF7ED;   
 }
 
 
