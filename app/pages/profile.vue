@@ -5,7 +5,7 @@ import ProfileCover from "~/components/Profile/ProfileCover.vue";
 import ProfileAvatar from "~/components/Profile/ProfileAvatar.vue";
 import ProfileInfo from "~/components/Profile/ProfileInfo.vue";
 import ProfileStats from "~/components/Profile/ProfileStats.vue";
-import ProfileTap from "~/components/Profile/profileTap.vue";
+import ProfileTap from "~/components/Profile/ProfileTap.vue";
 import Window from "~/components/Explore/Window.vue";
 
 // ================= UI STATE =================
@@ -63,18 +63,28 @@ const onCategoryClick = (cat: string) => {
   <div>
     <ProfileCover />
 
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="relative -mt-20 flex gap-6">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div
+        class="relative -mt-20 flex flex-col lg:flex-row lg:items-center gap-6"
+      >
         <!-- Avatar -->
-        <ProfileAvatar />
+        <div class="flex justify-center lg:justify-start w-full lg:w-auto">
+          <ProfileAvatar />
+        </div>
 
-        <!-- Header Content -->
-        <div class="flex-1 flex justify-between">
-          <!-- ซ้าย: info -->
-          <ProfileInfo />
+        <!-- Content Row -->
+        <div
+          class="flex-1 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4"
+        >
+          <!-- LEFT : INFO -->
+          <div class="flex-1">
+            <ProfileInfo />
+          </div>
 
-          <!-- stats -->
-          <div class="flex items-start gap-4 ">
+          <!-- RIGHT : STATS -->
+          <div
+            class="w-full flex justify-center lg:w-auto lg:justify-end mt-4 lg:mt-0"
+          >
             <ProfileStats />
           </div>
         </div>

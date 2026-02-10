@@ -11,7 +11,7 @@ const tabs = [
 </script>
 
 <template>
-  <div class="border-b border-slate-200 mt-10">
+  <div class="border-b border-slate-200 mt-10 p-4 ">
 
     <div class="flex gap-8 overflow-x-auto">
 
@@ -38,7 +38,7 @@ const tabs = [
   </div>
 
   <!-- content mock -->
-  <div class="mt-6">
+  <div class="mt-6 p-4">
     <div v-if="activeTab==='works'">ผลงานของฉัน</div>
     <div v-if="activeTab==='collections'">คอลเลกชัน</div>
     <div v-if="activeTab==='saved'">ที่บันทึกไว้</div>
