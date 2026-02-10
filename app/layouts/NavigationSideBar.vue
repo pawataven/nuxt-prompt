@@ -1,8 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted } from 'vue';
-import PremiumCardVue from "~/components/Navbar/PremiumCard.vue";
-
-// --- 1. Types ---
+// ... (ส่วน Script เหมือนเดิม ไม่ต้องแก้) ...
 export interface SideNavbarProps {
   isOpen: boolean;
 }
@@ -48,28 +45,6 @@ const menuItems: MenuItem[] = [
     type: 'outline'
   }
 ];
-
-
-
-// กด ESC เพื่อปิดเมนู
-const handleKeydown = (e: KeyboardEvent) => {
-  if (e.key === 'Escape' && props.isOpen) {
-    emit('close');
-  }
-};
-
-onMounted(() => {
-  if (typeof window !== 'undefined') {
-    window.addEventListener('keydown', handleKeydown);
-  }
-});
-
-onUnmounted(() => {
-  if (typeof window !== 'undefined') {
-    window.removeEventListener('keydown', handleKeydown);
-  }
-});
-
 </script>
 
 <template>
@@ -84,24 +59,25 @@ onUnmounted(() => {
     >
       <div 
         v-if="isOpen"
-        class="fixed inset-0 z-40 bg-slate-900/50 backdrop-blur-sm md:hidden"
+        class="fixed inset-0 z-40 bg-slate-900/50 backdrop-blur-sm xl:hidden"
         @click="emit('close')"
         aria-hidden="true"
       ></div>
     </Transition>
 
     <aside 
-      class="fixed inset-y-0 left-0 z-50 flex flex-col w-72 h-full bg-white border-r border-gray-100 transition-transform duration-300 ease-in-out md:static md:translate-x-0"
+      class="fixed inset-y-0 left-0 z-50 flex flex-col w-72 h-full bg-white border-r border-gray-100 transition-transform duration-300 ease-in-out xl:static xl:translate-x-0"
       :class="isOpen ? 'translate-x-0 shadow-2xl' : '-translate-x-full'"
       aria-label="Sidebar Navigation"
     >
       <div class="flex items-center justify-between px-6 py-6 border-b border-gray-100 h-[88px] flex-shrink-0">
-        <h1 class="text-2xl font-bold tracking-tight text-primary-hover w-full text-center md:text-left">
-          PromptGo
+        <h1 class="text-2xl font-bold tracking-tight text-blue-600 w-full text-center xl:text-left">
+           PromptGo
         </h1>
+        
         <button 
           @click="emit('close')" 
-          class="md:hidden p-2 text-gray-400 hover:bg-gray-50 rounded-lg transition-colors"
+          class="xl:hidden p-2 text-gray-400 hover:bg-gray-50 rounded-lg transition-colors"
           aria-label="Close menu"
         >
           <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
@@ -114,8 +90,8 @@ onUnmounted(() => {
             <li v-for="item in menuItems" :key="item.to">
               <NuxtLink
                 :to="item.to"
-                class="flex items-center gap-4 rounded-xl px-4 py-3.5 text-text-primary transition-all duration-200 group hover:bg-blue-50 hover:text-primary active:scale-[0.98]"
-                active-class="bg-blue-50 text-primary font-semibold shadow-sm ring-1 ring-blue-100"
+                class="flex items-center gap-4 rounded-xl px-4 py-3.5 text-slate-600 transition-all duration-200 group hover:bg-blue-50 hover:text-blue-600 active:scale-[0.98]"
+                active-class="bg-blue-50 text-blue-600 font-semibold shadow-sm ring-1 ring-blue-100"
                 @click="emit('close')" 
               >
                 <svg
@@ -126,8 +102,8 @@ onUnmounted(() => {
                   :stroke-width="item.type === 'fill' ? '0' : '2'"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  class="w-5 h-5 text-text-secondary group-hover:text-primary transition-colors duration-200"
-                  :class="{ 'text-primary': $route.path === item.to }" 
+                  class="w-5 h-5 text-slate-400 group-hover:text-blue-600 transition-colors duration-200"
+                  :class="{ 'text-blue-600': $route.path === item.to }" 
                 >
                   <path :d="item.icon" />
                 </svg>
@@ -140,34 +116,16 @@ onUnmounted(() => {
 
       <div class="flex flex-col flex-shrink-0 bg-white z-10">
         <slot name="before-profile" />
-
-        <div class="px-4 pb-4">
-           <PremiumCardVue />
-        </div>
-
+        <div class="px-4 pb-4"></div>
         <div class="p-4 border-t border-slate-100">
-          <button
-            class="flex w-full cursor-pointer items-center gap-3 rounded-2xl border border-transparent p-2 transition-all duration-200 hover:bg-slate-50 hover:border-slate-200 hover:shadow-sm group outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
-            aria-label="User profile settings"
-          >
+          <button class="flex w-full cursor-pointer items-center gap-3 rounded-2xl border border-transparent p-2 transition-all duration-200 hover:bg-slate-50 hover:border-slate-200 hover:shadow-sm group outline-none">
             <div class="relative w-10 h-10 rounded-full bg-slate-200 overflow-hidden border-2 border-white shadow-sm ring-1 ring-slate-100 shrink-0">
-              <NuxtImg
-                src="/Navbar/DefaultUser.png"
-                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                alt=""
-                loading="lazy"
-              />
+              <NuxtImg src="/Navbar/DefaultUser.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform" />
             </div>
-
             <div class="flex-1 min-w-0 text-left">
               <div class="font-bold text-sm text-slate-900 truncate">Arpao Dev</div>
               <div class="text-xs text-slate-500 truncate font-medium">@arpaodev</div>
             </div>
-
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-400 transition-colors duration-200 group-hover:text-primary group-hover:rotate-45">
-              <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path>
-              <circle cx="12" cy="12" r="3"></circle>
-            </svg>
           </button>
         </div>
       </div>

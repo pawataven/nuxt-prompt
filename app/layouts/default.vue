@@ -23,16 +23,9 @@ watch(() => route.path, () => closeSidebar());
 
       <main class="flex-1 overflow-y-auto scroll-smooth relative">
 
-        <div class="md:hidden flex items-center justify-between px-4 pt-4 pb-2 bg-white">
+        <div class="xl:hidden flex items-center justify-between px-4 pt-4 pb-2 bg-white">
           <div class="flex items-center gap-3">
-            <button @click="toggleSidebar"
-              class="p-2 -ml-2 text-gray-500 rounded-lg hover:bg-gray-50 active:bg-gray-100 transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
-            <span class="text-lg font-bold text-gray-800">PromptGo</span>
+            <span class="text-lg font-bold text-blue-600">PromptGo</span>
           </div>
 
           <div class="w-8 h-8 rounded-full bg-gray-200 overflow-hidden border border-gray-100">
@@ -41,8 +34,16 @@ watch(() => route.path, () => closeSidebar());
         </div>
 
         <div
-          class="md:hidden sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-gray-100 px-4 pb-3 pt-1 shadow-sm">
-          <div class="flex items-center gap-2">
+          class="xl:hidden sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-gray-100 px-4 h-16 flex items-center shadow-sm">
+          <div class="flex items-center gap-2 w-full">
+            
+            <button @click="toggleSidebar"
+              class="p-2 -ml-2 mr-1 text-gray-500 rounded-xl hover:bg-gray-100 active:bg-gray-200 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
 
             <div class="relative flex-1">
               <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
@@ -68,7 +69,7 @@ watch(() => route.path, () => closeSidebar());
           </div>
         </div>
 
-        <div class="hidden md:block sticky top-0 z-30">
+        <div class="hidden xl:block sticky top-0 z-30">
           <NavigationTopBar />
         </div>
 

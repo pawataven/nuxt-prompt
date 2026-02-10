@@ -491,21 +491,21 @@ const onCategoryClick = (cat: string) => console.log('Category:', cat);
 <template>
   <div class="min-h-screen bg-background-primary">
     
-    <div class="p-6 md:p-10">
+    <div class="p-6 xl:p-10">
       <HomePageBannerVue />
     </div>
 
-    <div class="sticky top-16 md:top-18.25 z-20 bg-background-primary/95 backdrop-blur-md border-b border-gray-100/50 transition-all">
+    <div class="sticky top-[64px] xl:top-[73px] z-20 bg-background-primary/95 backdrop-blur-md border-b border-gray-100/50 transition-all">
       
-      <div class="overflow-x-auto no-scrollbar px-6 md:px-10 py-2">
-         <div class="min-w-max">
-            <HomeNavbarVue />
-         </div>
+      <div class="overflow-x-auto no-scrollbar px-6 xl:px-10 py-2">
+          <div class="min-w-max">
+             <HomeNavbarVue />
+          </div>
       </div>
 
     </div>
 
-    <section class="p-6 md:p-10">
+    <section class="p-6 xl:p-10">
       <h2 class="text-2xl font-bold pt-6 pb-10 text-text-primary">แนะนำสำหรับคุณ</h2>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
