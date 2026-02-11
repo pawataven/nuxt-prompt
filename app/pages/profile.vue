@@ -56,6 +56,7 @@ const onAuthorClick = (name: string) => {
 const onCategoryClick = (cat: string) => {
   // TODO: ไปหน้า category
 };
+
 </script>
 
 <template>
