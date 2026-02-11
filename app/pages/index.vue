@@ -162,7 +162,7 @@ const onCategoryClick = (cat: string) => console.log('Category:', cat);
     <section class="p-6 xl:p-10">
       <h2 class="text-2xl font-bold pt-6 pb-10 text-text-primary">แนะนำสำหรับคุณ</h2>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+      <div class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-5 gap-2 md:gap-6 mx-auto">
         <WindowVue 
           v-for="item in promptItems" 
           :key="item.id"
