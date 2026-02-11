@@ -125,7 +125,7 @@ const onCategoryClick = (cat: string) => console.log('Category:', cat);
 
 <template>
   <main class="min-h-screen p-4 md:p-8 bg-background-primary">
-    <header class="mb-8 max-w-[1920px] mx-auto">
+    <header class="mb-8 max-w-480 mx-auto">
       <h1 class="text-3xl font-bold mb-2 text-center md:text-left text-text-primary">สำรวจไอเดียใหม่ๆ</h1>
       <p class="text-center md:text-left text-text-secondary">ค้นพบ Prompt ที่น่าสนใจจากครีเอเตอร์ทั่วโลก</p>
     </header>
