@@ -6,23 +6,30 @@ import ProfileAvatar from "~/components/Profile/ProfileAvatar.vue";
 import ProfileInfo from "~/components/Profile/ProfileInfo.vue";
 import ProfileStats from "~/components/Profile/ProfileStats.vue";
 import ProfileTap from "~/components/Profile/ProfileTap.vue";
+
 import Window from "~/components/Explore/Window.vue";
+import WindowDetail from "~/components/Explore/WindowDetail.vue";
 
 // ================= UI STATE =================
 const activeTab = ref("works");
 
-// ================= MOCK DATA (รอ backend จริง) =================
+// ================= MOCK DATA =================
 const works = ref([
-  // TODO: GET /user/prompts
+  {
+    id: 1,
+    title: "My Prompt",
+    image:
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
+    likes: "120",
+    isLiked: false,
+    isSaved: false,
+    detailText: "รายละเอียด prompt",
+    exampleImages: [],
+  },
 ]);
 
-const collections = ref([
-  // TODO: GET /user/collections
-]);
-
-const saved = ref([
-  // TODO: GET /user/saved
-]);
+const collections = ref([]);
+const saved = ref([]);
 
 // ================= TAB SWITCH =================
 const currentItems = computed(() => {
@@ -32,34 +39,32 @@ const currentItems = computed(() => {
   return [];
 });
 
-// ================= EVENT PLACEHOLDER =================
+// ================= MODAL =================
+const isDetailOpen = ref(false);
+const selectedItem = ref<any>(null);
+
 const onCardClick = (id: number) => {
-  // TODO: open modal หรือ navigate
+  const item = currentItems.value.find((p: any) => p.id === id);
+  if (item) {
+    selectedItem.value = item;
+    isDetailOpen.value = true;
+  }
 };
 
-const onFilterBadge = (badge: string) => {
-  // TODO: filter model
+const closeDetail = () => {
+  isDetailOpen.value = false;
 };
 
-const onToggleSave = (id: number) => {
-  // TODO: POST /save
-};
-
-const onToggleLike = (id: number) => {
-  // TODO: POST /like
-};
-
-const onAuthorClick = (name: string) => {
-  // TODO: ไปหน้า profile creator
-};
-
-const onCategoryClick = (cat: string) => {
-  // TODO: ไปหน้า category
-};
+// ================= EVENTS =================
+const onFilterBadge = () => {};
+const onToggleSave = () => {};
+const onToggleLike = () => {};
+const onAuthorClick = () => {};
+const onCategoryClick = () => {};
 </script>
 
 <template>
-  <!-- ================= PROFILE HEADER ================= -->
+  <!-- PROFILE HEADER -->
   <div>
     <ProfileCover />
 
@@ -67,21 +72,17 @@ const onCategoryClick = (cat: string) => {
       <div
         class="relative -mt-20 flex flex-col lg:flex-row lg:items-center gap-6"
       >
-        <!-- Avatar -->
         <div class="flex justify-center lg:justify-start w-full lg:w-auto">
           <ProfileAvatar />
         </div>
 
-        <!-- Content Row -->
         <div
           class="flex-1 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4"
         >
-          <!-- LEFT : INFO -->
           <div class="flex-1">
             <ProfileInfo />
           </div>
 
-          <!-- RIGHT : STATS -->
           <div
             class="w-full flex justify-center lg:w-auto lg:justify-end mt-4 lg:mt-0"
           >
@@ -92,13 +93,14 @@ const onCategoryClick = (cat: string) => {
     </div>
   </div>
 
-  <!-- ================= TAB CONTROL ================= -->
-  <ProfileTap
-    :active-tab="activeTab"
-    @change-tab="(tab) => (activeTab = tab)"
-  />
+  <div class="max-w-6xl mx-auto px-6">
+    <ProfileTap
+      :active-tab="activeTab"
+      @change-tab="(tab) => (activeTab = tab)"
+    />
+  </div>
 
-  <!-- ================= GRID ================= -->
+  <!-- GRID -->
   <section
     class="max-w-6xl mx-auto px-6 mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
   >
@@ -114,4 +116,14 @@ const onCategoryClick = (cat: string) => {
       @click-category="onCategoryClick"
     />
   </section>
+
+  <!-- MODAL -->
+  <WindowDetail
+    v-if="selectedItem"
+    :is-open="isDetailOpen"
+    v-bind="selectedItem"
+    :detail-text="selectedItem.detailText"
+    :example-images="selectedItem.exampleImages"
+    @close="closeDetail"
+  />
 </template>
