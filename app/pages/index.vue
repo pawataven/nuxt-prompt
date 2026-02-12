@@ -101,7 +101,183 @@ const promptItems = ref([
     isLiked: true,
     isSaved: true,
     exampleImages: []
-  }
+  },
+    {
+    id: 3,
+    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800',
+    badge: 'Claude 3.5',
+    category: 'CODE',
+    categoryColor: 'bg-blue-400',
+    title: 'โครงสร้าง React Component',
+    description: 'Create a reusable React Button component...',
+    detailText: 'ตัวอย่างการเขียน React Component ที่สามารถนำกลับมาใช้ใหม่ได้ (Reusable) พร้อมการจัดการ Props และ TypeScript Interface',
+    authorName: 'DevMaster',
+    views: '9.8k',
+    likes: '1,567',
+    tags: ['Coding', 'React', 'Tailwind'],
+    isLiked: false,
+    isSaved: false,
+    exampleImages: [
+        'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=400'
+    ]
+  },
+  {
+    id: 4,
+    image: 'https://images.unsplash.com/photo-1661956602116-aa6865609028?auto=format&fit=crop&q=80&w=800',
+    badge: 'GPT-4',
+    category: 'WRITING',
+    categoryColor: 'bg-gray-400',
+    title: 'เขียนบทความ SEO ภาษาไทย',
+    description: 'Act as an SEO specialist...',
+    detailText: 'คำสั่งสำหรับให้ AI สวมบทบาทเป็นผู้เชี่ยวชาญด้าน SEO เพื่อเขียนบทความภาษาไทยที่ติดอันดับการค้นหาได้ง่าย',
+    authorName: 'ContentMaster',
+    views: '8.7k',
+    likes: '1,923',
+    isLiked: false,
+    isSaved: false,
+    exampleImages: []
+  },
+    {
+    id: 3,
+    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800',
+    badge: 'Claude 3.5',
+    category: 'CODE',
+    categoryColor: 'bg-blue-400',
+    title: 'โครงสร้าง React Component',
+    description: 'Create a reusable React Button component...',
+    detailText: 'ตัวอย่างการเขียน React Component ที่สามารถนำกลับมาใช้ใหม่ได้ (Reusable) พร้อมการจัดการ Props และ TypeScript Interface',
+    authorName: 'DevMaster',
+    views: '9.8k',
+    likes: '1,567',
+    tags: ['Coding', 'React', 'Tailwind'],
+    isLiked: false,
+    isSaved: false,
+    exampleImages: [
+        'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=400'
+    ]
+  },
+  {
+    id: 4,
+    image: 'https://images.unsplash.com/photo-1661956602116-aa6865609028?auto=format&fit=crop&q=80&w=800',
+    badge: 'GPT-4',
+    category: 'WRITING',
+    categoryColor: 'bg-gray-400',
+    title: 'เขียนบทความ SEO ภาษาไทย',
+    description: 'Act as an SEO specialist...',
+    detailText: 'คำสั่งสำหรับให้ AI สวมบทบาทเป็นผู้เชี่ยวชาญด้าน SEO เพื่อเขียนบทความภาษาไทยที่ติดอันดับการค้นหาได้ง่าย',
+    authorName: 'ContentMaster',
+    views: '8.7k',
+    likes: '1,923',
+    isLiked: false,
+    isSaved: false,
+    exampleImages: []
+  },
+    {
+    id: 3,
+    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800',
+    badge: 'Claude 3.5',
+    category: 'CODE',
+    categoryColor: 'bg-blue-400',
+    title: 'โครงสร้าง React Component',
+    description: 'Create a reusable React Button component...',
+    detailText: 'ตัวอย่างการเขียน React Component ที่สามารถนำกลับมาใช้ใหม่ได้ (Reusable) พร้อมการจัดการ Props และ TypeScript Interface',
+    authorName: 'DevMaster',
+    views: '9.8k',
+    likes: '1,567',
+    tags: ['Coding', 'React', 'Tailwind'],
+    isLiked: false,
+    isSaved: false,
+    exampleImages: [
+        'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=400'
+    ]
+  },
+  {
+    id: 4,
+    image: 'https://images.unsplash.com/photo-1661956602116-aa6865609028?auto=format&fit=crop&q=80&w=800',
+    badge: 'GPT-4',
+    category: 'WRITING',
+    categoryColor: 'bg-gray-400',
+    title: 'เขียนบทความ SEO ภาษาไทย',
+    description: 'Act as an SEO specialist...',
+    detailText: 'คำสั่งสำหรับให้ AI สวมบทบาทเป็นผู้เชี่ยวชาญด้าน SEO เพื่อเขียนบทความภาษาไทยที่ติดอันดับการค้นหาได้ง่าย',
+    authorName: 'ContentMaster',
+    views: '8.7k',
+    likes: '1,923',
+    isLiked: false,
+    isSaved: false,
+    exampleImages: []
+  },
+    {
+    id: 3,
+    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800',
+    badge: 'Claude 3.5',
+    category: 'CODE',
+    categoryColor: 'bg-blue-400',
+    title: 'โครงสร้าง React Component',
+    description: 'Create a reusable React Button component...',
+    detailText: 'ตัวอย่างการเขียน React Component ที่สามารถนำกลับมาใช้ใหม่ได้ (Reusable) พร้อมการจัดการ Props และ TypeScript Interface',
+    authorName: 'DevMaster',
+    views: '9.8k',
+    likes: '1,567',
+    tags: ['Coding', 'React', 'Tailwind'],
+    isLiked: false,
+    isSaved: false,
+    exampleImages: [
+        'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=400'
+    ]
+  },
+  {
+    id: 4,
+    image: 'https://images.unsplash.com/photo-1661956602116-aa6865609028?auto=format&fit=crop&q=80&w=800',
+    badge: 'GPT-4',
+    category: 'WRITING',
+    categoryColor: 'bg-gray-400',
+    title: 'เขียนบทความ SEO ภาษาไทย',
+    description: 'Act as an SEO specialist...',
+    detailText: 'คำสั่งสำหรับให้ AI สวมบทบาทเป็นผู้เชี่ยวชาญด้าน SEO เพื่อเขียนบทความภาษาไทยที่ติดอันดับการค้นหาได้ง่าย',
+    authorName: 'ContentMaster',
+    views: '8.7k',
+    likes: '1,923',
+    isLiked: false,
+    isSaved: false,
+    exampleImages: []
+  },
+    {
+    id: 3,
+    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800',
+    badge: 'Claude 3.5',
+    category: 'CODE',
+    categoryColor: 'bg-blue-400',
+    title: 'โครงสร้าง React Component',
+    description: 'Create a reusable React Button component...',
+    detailText: 'ตัวอย่างการเขียน React Component ที่สามารถนำกลับมาใช้ใหม่ได้ (Reusable) พร้อมการจัดการ Props และ TypeScript Interface',
+    authorName: 'DevMaster',
+    views: '9.8k',
+    likes: '1,567',
+    tags: ['Coding', 'React', 'Tailwind'],
+    isLiked: false,
+    isSaved: false,
+    exampleImages: [
+        'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=400'
+    ]
+  },
+  {
+    id: 4,
+    image: 'https://images.unsplash.com/photo-1661956602116-aa6865609028?auto=format&fit=crop&q=80&w=800',
+    badge: 'GPT-4',
+    category: 'WRITING',
+    categoryColor: 'bg-gray-400',
+    title: 'เขียนบทความ SEO ภาษาไทย',
+    description: 'Act as an SEO specialist...',
+    detailText: 'คำสั่งสำหรับให้ AI สวมบทบาทเป็นผู้เชี่ยวชาญด้าน SEO เพื่อเขียนบทความภาษาไทยที่ติดอันดับการค้นหาได้ง่าย',
+    authorName: 'ContentMaster',
+    views: '8.7k',
+    likes: '1,923',
+    isLiked: false,
+    isSaved: false,
+    exampleImages: []
+  },
+  
 ]);
 
 // --- 3. Logic: คำนวณหา Related Item (สำหรับส่งไปให้ Modal) ---
