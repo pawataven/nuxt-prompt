@@ -86,8 +86,10 @@ const menuItems: MenuItem[] = [
                   :fill="item.type === 'fill' ? 'currentColor' : 'none'"
                   :stroke="item.type === 'fill' ? 'none' : 'currentColor'"
                   :stroke-width="item.type === 'fill' ? '0' : '2'" stroke-linecap="round" stroke-linejoin="round"
-                  class="w-5 h-5 text-slate-400 group-hover:text-blue-600 transition-colors duration-200"
-                  :class="{ 'text-blue-600': $route.path === item.to }">
+                  class="w-5 h-5 min-w-5 min-h-5 shrink-0 overflow-visible transition-colors duration-200"
+                  :class="[
+                    $route.path === item.to ? 'text-blue-600' : 'text-slate-400 group-hover:text-blue-600'
+                  ]">
                   <path :d="item.icon" />
                 </svg>
                 <span class="text-[15px] font-medium tracking-wide">{{ item.label }}</span>
@@ -98,7 +100,7 @@ const menuItems: MenuItem[] = [
       </div>
 
       <PremiumCard />
-      
+
       <div class="flex flex-col shrink-0 bg-white z-10">
         <slot name="before-profile" />
         <div class="px-4 pb-4"></div>

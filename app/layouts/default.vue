@@ -5,6 +5,7 @@ import { useRoute } from 'vue-router';
 // Import Components
 import NavigationSideBar from './NavigationSideBar.vue';
 import NavigationTopBar from './NavigationTopBar.vue';
+import ScrollToTop from '~/components/Shared/ScrollToTop.vue';
 
 const isSidebarOpen = ref(false);
 const toggleSidebar = () => isSidebarOpen.value = !isSidebarOpen.value;
@@ -15,13 +16,14 @@ watch(() => route.path, () => closeSidebar());
 </script>
 
 <template>
+
   <div class="flex h-screen bg-gray-50 overflow-hidden">
 
     <NavigationSideBar :is-open="isSidebarOpen" @close="closeSidebar" />
 
     <div class="flex-1 flex flex-col min-w-0 overflow-hidden relative transition-all duration-300">
 
-      <main class="flex-1 overflow-y-auto scroll-smooth relative">
+      <main class="flex-1 overflow-y-scroll scroll-smooth relative">
 
         <div class="xl:hidden flex items-center justify-between px-4 pt-4 pb-2 bg-white">
           <div class="flex items-center gap-3">
@@ -74,6 +76,10 @@ watch(() => route.path, () => closeSidebar());
         </div>
 
         <slot />
+    
+    
+        <ScrollToTop />
+        
       </main>
 
     </div>

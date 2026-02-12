@@ -13,14 +13,14 @@ const tabs = [
 </script>
 
 <template>
-  <div class="border-b border-slate-200 mt-10 px-4">
+  <div class="border-b border-slate-200 mt-10">
     <div class="flex gap-8 overflow-x-auto">
 
       <button
         v-for="tab in tabs"
         :key="tab.key"
         @click="emit('change-tab', tab.key)"
-        class="flex items-center gap-2 pb-4 text-sm font-medium whitespace-nowrap transition"
+        class=" cursor-pointer flex items-center gap-2 pb-4 text-sm font-medium whitespace-nowrap transition"
         :class="
           activeTab === tab.key
             ? 'text-blue-600 border-b-2 border-blue-600'
