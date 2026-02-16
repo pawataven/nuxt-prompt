@@ -5,11 +5,13 @@ import ProfileCoverVue from "~/components/Profile/ProfileCover.vue";
 import ProfileAvatarVue from "~/components/Profile/ProfileAvatar.vue";
 import ProfileInfoVue from "~/components/Profile/ProfileInfo.vue";
 import ProfileStatsVue from "~/components/Profile/ProfileStats.vue";
+import ProfileTapVue from "~/components/Profile/ProfileTap.vue";
 
+import WorksGridVue from "~/components/Profile/WorksGrid.vue";
+import CollectionGridVue from "~/components/Profile/CollectionGrid.vue";
+import SavedGridVue from "~/components/Profile/SavedGrid.vue";
 
-import WindowVue from "~/components/Explore/Window.vue";
 import WindowDetailVue from "~/components/Explore/WindowDetail.vue";
-import ProfileTapVue from "~/components/Profile/profileTap.vue";
 
 // ================= UI STATE =================
 const activeTab = ref("works");
@@ -17,76 +19,84 @@ const activeTab = ref("works");
 // ================= MOCK DATA =================
 const works = ref([
   {
-    id: 4,
-    image: 'https://images.unsplash.com/photo-1661956602116-aa6865609028?auto=format&fit=crop&q=80&w=800',
-    badge: 'GPT-4',
-    category: 'WRITING',
-    categoryColor: 'bg-gray-400',
-    title: 'เขียนบทความ SEO ภาษาไทย',
-    description: 'Act as an SEO specialist...',
-    detailText: 'คำสั่งสำหรับให้ AI สวมบทบาทเป็นผู้เชี่ยวชาญด้าน SEO เพื่อเขียนบทความภาษาไทยที่ติดอันดับการค้นหาได้ง่าย',
-    authorName: 'ContentMaster',
-    views: '8.7k',
-    likes: '1,923',
+    id: 1,
+    title: "Prompt SEO",
+    image: "https://picsum.photos/400/300?1",
+    likes: "120",
     isLiked: false,
     isSaved: false,
-    exampleImages: []
+    detailText: "รายละเอียด prompt",
+    exampleImages: [],
   },
   {
-    id: 4,
-    image: 'https://images.unsplash.com/photo-1661956602116-aa6865609028?auto=format&fit=crop&q=80&w=800',
-    badge: 'GPT-4',
-    category: 'WRITING',
-    categoryColor: 'bg-gray-400',
-    title: 'เขียนบทความ SEO ภาษาไทย',
-    description: 'Act as an SEO specialist...',
-    detailText: 'คำสั่งสำหรับให้ AI สวมบทบาทเป็นผู้เชี่ยวชาญด้าน SEO เพื่อเขียนบทความภาษาไทยที่ติดอันดับการค้นหาได้ง่าย',
-    authorName: 'ContentMaster',
-    views: '8.7k',
-    likes: '1,923',
+    id: 2,
+    title: "Prompt Anime",
+    image: "https://picsum.photos/400/300?2",
+    likes: "540",
     isLiked: false,
     isSaved: false,
-    exampleImages: []
+    detailText: "รายละเอียด prompt",
+    exampleImages: [],
   },
   {
-    id: 4,
-    image: 'https://images.unsplash.com/photo-1661956602116-aa6865609028?auto=format&fit=crop&q=80&w=800',
-    badge: 'GPT-4',
-    category: 'WRITING',
-    categoryColor: 'bg-gray-400',
-    title: 'เขียนบทความ SEO ภาษาไทย',
-    description: 'Act as an SEO specialist...',
-    detailText: 'คำสั่งสำหรับให้ AI สวมบทบาทเป็นผู้เชี่ยวชาญด้าน SEO เพื่อเขียนบทความภาษาไทยที่ติดอันดับการค้นหาได้ง่าย',
-    authorName: 'ContentMaster',
-    views: '8.7k',
-    likes: '1,923',
+    id: 3,
+    title: "Prompt Anime",
+    image: "https://picsum.photos/400/300?2",
+    likes: "540",
     isLiked: false,
     isSaved: false,
-    exampleImages: []
-  },
-  {
-    id: 4,
-    image: 'https://images.unsplash.com/photo-1661956602116-aa6865609028?auto=format&fit=crop&q=80&w=800',
-    badge: 'GPT-4',
-    category: 'WRITING',
-    categoryColor: 'bg-gray-400',
-    title: 'เขียนบทความ SEO ภาษาไทย',
-    description: 'Act as an SEO specialist...',
-    detailText: 'คำสั่งสำหรับให้ AI สวมบทบาทเป็นผู้เชี่ยวชาญด้าน SEO เพื่อเขียนบทความภาษาไทยที่ติดอันดับการค้นหาได้ง่าย',
-    authorName: 'ContentMaster',
-    views: '8.7k',
-    likes: '1,923',
-    isLiked: false,
-    isSaved: false,
-    exampleImages: []
+    detailText: "รายละเอียด prompt",
+    exampleImages: [],
   },
 
+  {
+    id: 4,
+    title: "Prompt Anime",
+    image: "https://picsum.photos/400/300?2",
+    likes: "540",
+    isLiked: false,
+    isSaved: false,
+    detailText: "รายละเอียด prompt",
+    exampleImages: [],
+  },
+  {
+    id: 5,
+    title: "Prompt Anime",
+    image: "https://picsum.photos/400/300?2",
+    likes: "540",
+    isLiked: false,
+    isSaved: false,
+    detailText: "รายละเอียด prompt",
+    exampleImages: [],
+  },
 ]);
 
-const collections = ref([]);
-const saved = ref([]);
+const collections = ref([
+  {
+    id: 1,
+    name: "รายการที่บันทึกไว้",
+    count: 12,
+    previews: [
+      "https://picsum.photos/100?1",
+      "https://picsum.photos/100?2",
+      "https://picsum.photos/100?3",
+    ],
+  },
+  {
+    id: 2,
+    name: "งานออกแบบ",
+    count: 5,
+    previews: [
+      "https://picsum.photos/100?4",
+      "https://picsum.photos/100?5",
+      "https://picsum.photos/100?6",
+    ],
+  },
+]);
 
-// ================= TAB SWITCH =================
+const saved = ref([...works.value]);
+
+// ================= DATA SWITCH =================
 const currentItems = computed(() => {
   if (activeTab.value === "works") return works.value;
   if (activeTab.value === "collections") return collections.value;
@@ -94,68 +104,70 @@ const currentItems = computed(() => {
   return [];
 });
 
+// ================= GRID SWITCH =================
+const currentComponent = computed(() => {
+  if (activeTab.value === "works") return WorksGridVue;
+  if (activeTab.value === "collections") return CollectionGridVue;
+  if (activeTab.value === "saved") return SavedGridVue;
+});
+
 // ================= MODAL =================
 const isDetailOpen = ref(false);
 const selectedItem = ref<any>(null);
 
-
-// --- 3. Logic: คำนวณหา Related Item (สำหรับส่งไปให้ Modal) ---
-const suggestedItem = computed(() => {
-  if (!selectedItem.value) return undefined;
-  // หาตัวอื่นที่ไม่ใช่ตัวปัจจุบันมาแสดงเป็น related content
-  return works.value.find(p => p.id !== selectedItem.value?.id) || works.value[0];
-});
-
-// --- 4. Handlers: จัดการ Event ---
-
-// เมื่อกดที่การ์ด -> เปิด Modal
 const onCardClick = (id: number) => {
-  const item = works.value.find(p => p.id === id);
+  const item = works.value.find((p) => p.id === id);
   if (item) {
     selectedItem.value = item;
     isDetailOpen.value = true;
   }
 };
 
-// เมื่อกดปิด Modal
 const closeDetail = () => {
   isDetailOpen.value = false;
 };
 
-// Dummy Logic สำหรับ Like/Save (ให้ UI ขยับเล่นๆ)
+// ================= EVENTS =================
 const onToggleLike = (id: number) => {
-  const item = works.value.find(p => p.id === id);
+  const item = works.value.find((p) => p.id === id);
   if (item) item.isLiked = !item.isLiked;
 };
 
 const onToggleSave = (id: number) => {
-  const item = works.value.find(p => p.id === id);
+  const item = works.value.find((p) => p.id === id);
   if (item) item.isSaved = !item.isSaved;
 };
 
-const onFilterBadge = (badge: string) => console.log('Filter:', badge);
-const onAuthorClick = (name: string) => console.log('Author:', name);
-const onCategoryClick = (cat: string) => console.log('Category:', cat);
-
+const onFilterBadge = () => {};
+const onAuthorClick = () => {};
+const onCategoryClick = () => {};
 </script>
 
 <template>
   <!-- PROFILE HEADER -->
   <div>
+    <!-- COVER -->
     <ProfileCoverVue />
 
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
-      <div class="relative -mt-20 flex flex-col lg:flex-row lg:items-center gap-6">
-        <div class="flex justify-center lg:justify-start w-full lg:w-auto">
+    <!-- CONTENT -->
+    <div class="w-full px-4">
+      <div class="flex flex-col lg:flex-row gap-6 -mt-16">
+        <!-- AVATAR -->
+        <div class="flex justify-start">
           <ProfileAvatarVue />
         </div>
 
-        <div class="flex-1 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+        <!-- INFO + STATS -->
+        <div
+          class="flex-1 flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6"
+        >
+          <!-- PROFILE INFO -->
           <div class="flex-1">
             <ProfileInfoVue />
           </div>
 
-          <div class="w-full flex justify-center lg:w-auto lg:justify-end mt-4 lg:mt-0">
+          <!-- PROFILE STATS -->
+          <div class="shrink-0">
             <ProfileStatsVue />
           </div>
         </div>
@@ -163,22 +175,40 @@ const onCategoryClick = (cat: string) => console.log('Category:', cat);
     </div>
   </div>
 
-  <!-- GRID -->
-  <section class="p-6 xl:p-10">
-    <ProfileTapVue :active-tab="activeTab" @change-tab="(tab) => (activeTab = tab)" />
-    <h2 class="text-2xl font-bold pt-6 pb-10 text-text-primary">
-      {{ activeTab == 'works' ? 'ผลงานของฉัน' : (activeTab === 'collections' ? 'คอลเลกชัน' : 'ที่บันทึกไว้') }}
+  <!-- CONTENT -->
+  <section class="p-4 xl:p-6 max-w-7xl mx-auto">
+    <ProfileTapVue
+      :active-tab="activeTab"
+      @change-tab="(tab) => (activeTab = tab)"
+    />
+
+    <h2 class="text-2xl font-bold pt-6 pb-6">
+      {{
+        activeTab === "works"
+          ? "ผลงานของฉัน"
+          : activeTab === "collections"
+            ? "คอลเลกชัน"
+            : "ที่บันทึกไว้"
+      }}
     </h2>
 
-    <div class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-5 gap-2 md:gap-6 mx-auto">
-      <WindowVue v-for="item in currentItems" :key="item.id" v-bind="item" @click-card="onCardClick"
-        @filter-badge="onFilterBadge" @toggle-save="onToggleSave" @toggle-like="onToggleLike"
-        @click-author="onAuthorClick" @click-category="onCategoryClick" />
-    </div>
-
-    <WindowDetailVue v-if="selectedItem" :is-open="isDetailOpen" v-bind="selectedItem" :related-item="suggestedItem"
-      @close="closeDetail" @click-tag="(tag) => console.log('Tag:', tag)" @toggle-like="onToggleLike"
-      @toggle-save="onToggleSave" @click-author="onAuthorClick" @click-card="onCardClick" />
+    <component
+      :is="currentComponent"
+      :items="currentItems"
+      :on-card-click="onCardClick"
+      :on-toggle-like="onToggleLike"
+      :on-toggle-save="onToggleSave"
+      :on-filter-badge="onFilterBadge"
+      :on-author-click="onAuthorClick"
+      :on-category-click="onCategoryClick"
+    />
   </section>
-</template>
 
+  <!-- MODAL -->
+  <WindowDetailVue
+    v-if="selectedItem"
+    :is-open="isDetailOpen"
+    v-bind="selectedItem"
+    @close="closeDetail"
+  />
+</template>
