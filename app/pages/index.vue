@@ -67,7 +67,7 @@ const promptItems = ref([
     isLiked: false,
     isSaved: false,
     exampleImages: [
-        'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=400'
+      'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=400'
     ]
   },
   {
@@ -102,7 +102,7 @@ const promptItems = ref([
     isSaved: true,
     exampleImages: []
   },
-    {
+  {
     id: 3,
     image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800',
     badge: 'Claude 3.5',
@@ -118,7 +118,7 @@ const promptItems = ref([
     isLiked: false,
     isSaved: false,
     exampleImages: [
-        'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=400'
+      'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=400'
     ]
   },
   {
@@ -137,7 +137,7 @@ const promptItems = ref([
     isSaved: false,
     exampleImages: []
   },
-    {
+  {
     id: 3,
     image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800',
     badge: 'Claude 3.5',
@@ -153,7 +153,7 @@ const promptItems = ref([
     isLiked: false,
     isSaved: false,
     exampleImages: [
-        'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=400'
+      'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=400'
     ]
   },
   {
@@ -172,7 +172,7 @@ const promptItems = ref([
     isSaved: false,
     exampleImages: []
   },
-    {
+  {
     id: 3,
     image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800',
     badge: 'Claude 3.5',
@@ -188,7 +188,7 @@ const promptItems = ref([
     isLiked: false,
     isSaved: false,
     exampleImages: [
-        'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=400'
+      'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=400'
     ]
   },
   {
@@ -207,7 +207,7 @@ const promptItems = ref([
     isSaved: false,
     exampleImages: []
   },
-    {
+  {
     id: 3,
     image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800',
     badge: 'Claude 3.5',
@@ -223,7 +223,7 @@ const promptItems = ref([
     isLiked: false,
     isSaved: false,
     exampleImages: [
-        'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=400'
+      'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=400'
     ]
   },
   {
@@ -242,7 +242,7 @@ const promptItems = ref([
     isSaved: false,
     exampleImages: []
   },
-    {
+  {
     id: 3,
     image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800',
     badge: 'Claude 3.5',
@@ -258,7 +258,7 @@ const promptItems = ref([
     isLiked: false,
     isSaved: false,
     exampleImages: [
-        'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=400'
+      'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=400'
     ]
   },
   {
@@ -277,7 +277,7 @@ const promptItems = ref([
     isSaved: false,
     exampleImages: []
   },
-  
+
 ]);
 
 // --- 3. Logic: คำนวณหา Related Item (สำหรับส่งไปให้ Modal) ---
@@ -316,22 +316,74 @@ const onToggleSave = (id: number) => {
 
 const onFilterBadge = (badge: string) => console.log('Filter:', badge);
 const onAuthorClick = (name: string) => console.log('Author:', name);
-const onCategoryClick = (cat: string) => console.log('Category:', cat);
+const onCategoryClick = (category: string) => console.log('Category:', category);
+
+// ✨ 1. สร้าง State เก็บว่าตอนนี้กดเมนูไหนอยู่
+const activeCategory = ref('all');
+
+// ✨ 2. ข้อมูลแบนเนอร์ของแต่ละหมวดหมู่ (พิมพ์ Type Record ไว้เผื่อกัน Error)
+const bannerData: Record<string, any> = {
+  all: {
+    title: 'เปลี่ยนไอเดีย <br /> ให้เป็น <span class="text-yellow-400">"ผลงานจริง"</span> <br /> ด้วยชุดคำสั่ง AI Prompt จาก <span class="text-primary">PromptGo</span>',
+    description: 'แหล่งรวม Prompt ที่คัดมาแล้วเพื่อคนทำงาน ช่วยให้คุณลดเวลาลองผิดลองถูก และได้ชิ้นงานคุณภาพสูงที่นำไปใช้ต่อยอดการทำงานได้ทันที',
+    bgClass: 'bg-linear-to-br from-[#1a1a2e] via-[#2a1a3e] to-[#3a1a4e]'
+  },
+  image: {
+    badge: 'IMAGE AI',
+    title: 'สร้างสรรค์งานภาพด้วย AI',
+    description: 'รวมคำสั่ง Midjourney, Stable Diffusion และ DALL-E สำหรับงานศิลปะของคุณ',
+    bgClass: 'bg-gradient-to-r from-orange-800 to-red-900',
+    image: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2000'
+  },
+  writing: {
+    badge: 'WRITING',
+    title: 'ผู้ช่วยงานเขียนอัจฉริยะ',
+    description: 'Prompt สำหรับงานเขียน SEO, บทความบล็อก, แคปชั่นโซเชียล และอีเมล',
+    bgClass: 'bg-gradient-to-r from-emerald-800 to-teal-900',
+    image: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2000'
+  },
+  code: {
+    badge: 'CODE & DEV',
+    title: 'ตัวช่วยเขียนโค้ดและโปรแกรม',
+    description: 'Prompt สำหรับนักพัฒนา ช่วยหาบั๊ก เขียนโครงสร้าง และอธิบายโค้ด',
+    bgClass: 'bg-gradient-to-r from-blue-800 to-indigo-900',
+    image: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2000'
+  },
+  video: {
+    badge: 'VIDEO',
+    title: 'ไอเดียสร้างวิดีโอ',
+    description: 'Prompt สำหรับเขียนสคริปต์วิดีโอ YouTube, TikTok และ Reels',
+    bgClass: 'bg-gradient-to-r from-purple-800 to-pink-900',
+    image: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2000'
+  },
+  other: {
+    badge: 'OTHER',
+    title: 'ไอเดียและอื่นๆ',
+    description: 'Prompt จับฉ่าย ครอบคลุมทุกการใช้งานที่คุณนึกไม่ถึง',
+    bgClass: 'bg-gradient-to-r from-gray-700 to-slate-900',
+    image: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2000'
+  }
+};
+
+const currentBanner = computed(() => {
+  return bannerData[activeCategory.value] || bannerData['all'];
+});
 
 </script>
 
 <template>
   <div class="min-h-screen bg-background-primary">
-    
+
     <div class="p-6 xl:p-10">
-      <HomePageBannerVue />
+      <HomePageBannerVue :banner="currentBanner" />
     </div>
 
-    <div class="sticky top-16 xl:top-18.25 z-20 bg-background-primary/95 backdrop-blur-md border-b border-gray-100/50 transition-all">
+    <div
+      class="sticky top-16 xl:top-18.25 z-20 bg-background-primary/95 backdrop-blur-md border-b border-gray-100/50 transition-all">
       <div class="overflow-x-auto no-scrollbar px-6 xl:px-10 py-2">
-         <div class="min-w-max">
-            <HomeNavbarVue />
-         </div>
+        <div class="min-w-max">
+          <HomeNavbarVue :active-category="activeCategory" @change-category="(cat) => activeCategory = cat" />
+        </div>
       </div>
     </div>
 
@@ -339,37 +391,26 @@ const onCategoryClick = (cat: string) => console.log('Category:', cat);
       <h2 class="text-2xl font-bold pt-6 pb-10 text-text-primary">แนะนำสำหรับคุณ</h2>
 
       <div class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-5 gap-2 md:gap-6 mx-auto">
-        <WindowVue 
-          v-for="item in promptItems" 
-          :key="item.id"
-          v-bind="item" 
-          @click-card="onCardClick"
-          @filter-badge="onFilterBadge"
-          @toggle-save="onToggleSave"
-          @toggle-like="onToggleLike"
-          @click-author="onAuthorClick"
-          @click-category="onCategoryClick"
-        />
+        <WindowVue v-for="item in promptItems" :key="item.id" v-bind="item" @click-card="onCardClick"
+          @filter-badge="onFilterBadge" @toggle-save="onToggleSave" @toggle-like="onToggleLike"
+          @click-author="onAuthorClick" @click-category="onCategoryClick" />
       </div>
 
-      <WindowDetail 
-        v-if="selectedItem"
-        :is-open="isDetailOpen"
-        v-bind="selectedItem"
-        :related-item="suggestedItem"
-        @close="closeDetail"
-        @click-tag="(tag) => console.log('Tag:', tag)"
-        @toggle-like="onToggleLike"
-        @toggle-save="onToggleSave"
-        @click-author="onAuthorClick"
-        @click-card="onCardClick" 
-      />
+      <WindowDetail v-if="selectedItem" :is-open="isDetailOpen" v-bind="selectedItem" :related-item="suggestedItem"
+        @close="closeDetail" @click-tag="(tag) => console.log('Tag:', tag)" @toggle-like="onToggleLike"
+        @toggle-save="onToggleSave" @click-author="onAuthorClick" @click-card="onCardClick" />
     </section>
 
   </div>
 </template>
 
 <style scoped>
-.no-scrollbar::-webkit-scrollbar { display: none; }
-.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 </style>
