@@ -64,7 +64,7 @@ const handleAuthorClick = (e: Event) => {
       </button>
 
       <button @click="handleSaveClick"
-        class="absolute top-2 right-2 z-10 p-1 rounded-full backdrop-blur-md transition-all duration-200 shadow-sm"
+        class="absolute top-2 cursor-pointer right-2 z-10 p-1 rounded-full backdrop-blur-md transition-all duration-200 shadow-sm"
         :class="isSaved
           ? 'bg-accent-soft text-accent'
           : 'bg-black/30 text-white hover:bg-black/50'" aria-label="Save">
