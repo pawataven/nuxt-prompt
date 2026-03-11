@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import LoginModal from "~/components/Auth/LoginModal.vue"
 import { ref, computed } from 'vue';
 import HomePageBannerVue from '~/components/Home/HomePageBanner.vue';
 import HomeNavbarVue from '~/components/Home/HomeNavbar.vue';
@@ -8,6 +9,7 @@ import WindowDetail from '~/components/Explore/WindowDetail.vue';
 // --- State สำหรับ Modal ---
 const isDetailOpen = ref(false);
 const selectedItem = ref<WindowProps | null>(null);
+const showLogin = ref(true)
 
 const promptItems = ref([
   {
@@ -402,6 +404,7 @@ const currentBanner = computed(() => {
     </section>
 
   </div>
+   <LoginModal v-if="showLogin" />
 </template>
 
 <style scoped>
