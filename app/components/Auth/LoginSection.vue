@@ -12,9 +12,9 @@ const togglePassword = () => {
   <section class="min-h-screen flex items-center justify-center px-6 xl:px-10">
     <div class="w-full max-w-7xl grid lg:grid-cols-2 gap-12 items-center">
       <!-- LEFT LOGIN -->
-      <div class="max-w-md w-full">
+      <div class="max-w-md w-full mx-auto">
         <!-- logo -->
-        <h1 class="text-5xl font-bold text-blue-600 mb-10 ">PromptGo</h1>
+        <h1 class="text-4xl lg:text-5xl font-bold text-blue-600 mb-8 lg:mb-10 text-center">PromptGo</h1>
 
         <!-- Email -->
         <div class="mb-6">
@@ -62,35 +62,33 @@ const togglePassword = () => {
         <!-- forgot -->
         <div class="text-right text-sm mb-6">
           <a class="text-gray-600 hover:underline cursor-pointer">
-            คุณลืมรหัสผ่าน?
+            ลืมรหัสผ่าน?
           </a>
         </div>
 
         <!-- login button -->
-        <button
-          class="w-full bg-gray-300 hover:bg-gray-400 py-3 rounded-full font-medium transition mb-6"
-        >
-          Login
+        <button class="w-full cursor-pointer bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-full font-medium transition mb-6 shadow-sm hover:shadow-md">
+          เข้าสู่ระบบ
         </button>
 
         <!-- divider -->
-        <p class="text-center text-sm text-gray-500 mb-5">or sign up with</p>
+        <p class="text-center text-sm text-gray-500 mb-5">หรือ เข้าสู่ระบบช่องทางอื่นๆ</p>
 
         <!-- social -->
         <div class="flex justify-center gap-8 mb-6">
-          <button class="text-3xl">
+          <button class="cursor-pointer text-3xl">
             <Icon name="logos:google-icon" />
           </button>
 
-          <button class="text-3xl">
+          <button class="cursor-pointer text-3xl">
             <Icon name="logos:facebook" />
           </button>
         </div>
 
         <!-- signup -->
         <p class="text-center text-sm">
-          Don’t have an account?
-          <span class="font-semibold cursor-pointer">Sign up</span>
+          สร้างบัญชี
+          <span class="font-semibold cursor-pointer">คลิกที่นี่</span>
         </p>
       </div>
 
@@ -101,7 +99,7 @@ const togglePassword = () => {
         >
           <NuxtImg
             src="/Login/web-developer.svg"
-            width="380"
+            width="540"
             alt="login illustration"
           />
         </div>

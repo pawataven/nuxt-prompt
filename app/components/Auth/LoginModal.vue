@@ -20,7 +20,7 @@ const closeModal = () => {
     <div class="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
 
     <!-- modal -->
-    <div class="relative bg-white w-[420px] rounded-lg shadow-xl p-8 z-10">
+    <div class="relative bg-white w-105 rounded-lg shadow-xl p-8 z-10">
 
       <!-- close -->
       <button
@@ -37,7 +37,7 @@ const closeModal = () => {
 
       <!-- email -->
       <div class="mb-4">
-        <label class="text-sm font-medium">Email</label>
+        <label class="text-sm font-medium">อีเมล</label>
 
         <div class="relative mt-1">
           <Icon
@@ -55,7 +55,7 @@ const closeModal = () => {
 
       <!-- password -->
       <div class="mb-2">
-        <label class="text-sm font-medium">Password</label>
+        <label class="text-sm font-medium">รหัสผ่าน</label>
 
         <div class="relative mt-1">
 
@@ -83,20 +83,18 @@ const closeModal = () => {
       <!-- forgot -->
       <div class="text-right text-sm mb-6">
         <a href="#" class="text-gray-600 hover:underline">
-          Forget Password?
+          ลืมรหัสผ่าน?
         </a>
       </div>
 
       <!-- login button -->
-      <button
-        class="w-full bg-gray-300 hover:bg-gray-400 text-black py-2 rounded-full mb-6"
-      >
-        Login
-      </button>
+        <button class="w-full cursor-pointer bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-full font-medium transition mb-6 shadow-sm hover:shadow-md">
+          เข้าสู่ระบบ
+        </button>
 
       <!-- divider -->
       <p class="text-center text-sm text-gray-500 mb-4">
-        or sign up with
+        หรือ เข้าสู่ระบบช่องทางอื่นๆ
       </p>
 
       <!-- social -->
@@ -114,8 +112,8 @@ const closeModal = () => {
 
       <!-- signup -->
       <p class="text-center text-sm">
-        Don’t have an account?
-        <span class="font-semibold cursor-pointer">Sign up</span>
+        สมัครบัญชี
+        <span class="font-semibold cursor-pointer underline">คลิกที่นี่</span>
       </p>
 
     </div>

@@ -320,10 +320,10 @@ const onFilterBadge = (badge: string) => console.log('Filter:', badge);
 const onAuthorClick = (name: string) => console.log('Author:', name);
 const onCategoryClick = (category: string) => console.log('Category:', category);
 
-// ✨ 1. สร้าง State เก็บว่าตอนนี้กดเมนูไหนอยู่
+// 1. สร้าง State เก็บว่าตอนนี้กดเมนูไหนอยู่
 const activeCategory = ref('all');
 
-// ✨ 2. ข้อมูลแบนเนอร์ของแต่ละหมวดหมู่ (พิมพ์ Type Record ไว้เผื่อกัน Error)
+// 2. ข้อมูลแบนเนอร์ของแต่ละหมวดหมู่ (พิมพ์ Type Record ไว้เผื่อกัน Error)
 const bannerData: Record<string, any> = {
   all: {
     title: 'เปลี่ยนไอเดีย <br /> ให้เป็น <span class="text-yellow-400">"ผลงานจริง"</span> <br /> ด้วยชุดคำสั่ง AI Prompt จาก <span class="text-primary">PromptGo</span>',

@@ -34,5 +34,12 @@ export default defineNuxtConfig({
       '@fortawesome/free-regular-svg-icons',
       '@fortawesome/vue-fontawesome'
     ]
-  }
+  },
+
+  runtimeConfig: {
+    public: {
+      apiBase: "http://localhost:3001"
+    }
+  },
+  
 })
