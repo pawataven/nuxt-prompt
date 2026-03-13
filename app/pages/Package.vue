@@ -1,153 +1,185 @@
 <script setup lang="ts">
+// สามารถ import useRouter เพื่อใช้สำหรับเปลี่ยนหน้าได้
+// import { useRouter } from 'vue-router'
+// const router = useRouter()
+
+const startFreePlan = () => {
+  // ใส่ Action ที่ต้องการเมื่อคลิกปุ่มเริ่มใช้งานฟรี
+}
+
+const upgradePlan = () => {
+  // ใส่ Action ที่ต้องการเมื่อคลิกปุ่มอัปเกรดแพ็กเกจ
+}
 </script>
 
 <template>
-  <div class="min-h-screen bg-slate-50 font-[Prompt]">
-    <!-- Page Header -->
-    <div class="mx-auto max-w-6xl px-8 py-6">
+  <div class="min-h-screen bg-background-primary">
+    <div class="mx-auto max-w-6xl px-8 py-8">
       <div class="flex items-center gap-2">
-
-
       </div>
     </div>
 
-    <!-- Pricing -->
-    <section class="mx-auto max-w-6xl px-8 pb-12 text-center">
-      <h1 class="text-5xl font-bold">
+    <section class="mx-auto max-w-7xl px-8 pb-16 text-center">
+      <h1 class="text-5xl font-bold text-text-primary md:text-6xl md:leading-tight">
         เลือกแพ็กเกจที่เหมาะกับ<br />
         การใช้งานของคุณ
       </h1>
 
-      <p class="mt-5 text-gray-500">
+      <p class="mt-6 text-lg text-text-secondary">
         ใช้ฟรีได้เต็มที่ หรือเลือก Premium เพื่อประสบการณ์ที่ลื่นไหลกว่า<br />
-        <span class="text-blue-600">
+        <span class="text-primary font-medium">
           ไม่มีการล็อกเนื้อหา Prompt ใด ๆ ทั้งสิ้น
         </span>
       </p>
 
-      <!-- Cards -->
-      <div class="mt-12 flex flex-wrap justify-center gap-8">
-        <!-- Starter -->
-        <div class="relative w-[320px] rounded-2xl border border-gray-200 bg-white p-6 text-left">
-          <span class="text-xs text-gray-500">STARTER</span>
-          <h3 class="mt-2 text-lg font-semibold">เริ่มต้นใช้งาน</h3>
+      <div class="mt-16 flex flex-wrap justify-center items-stretch gap-10">
+        
+        <div class="relative flex flex-col w-[380px] rounded-3xl border border-border-primary bg-background-secondary p-8 text-left shadow-sm">
+          <span class="text-sm font-semibold tracking-wider text-text-secondary">STARTER</span>
+          <h3 class="mt-3 text-2xl font-bold text-text-primary">เริ่มต้นใช้งาน</h3>
 
-          <ul class="mt-4 space-y-2 text-sm">
-            <!--แถว1-->
-            <li class="flex items-center gap-3">
-              <span class="h-6 w-6 text-green-500">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" fill="currentColor">
-                  <path
-                    d="M480 96C515.3 96 544 124.7 544 160L544 480C544 515.3 515.3 544 480 544L160 544C124.7 544 96 515.3 96 480L96 160C96 124.7 124.7 96 160 96L480 96zM160 144C151.2 144 144 151.2 144 160L144 480C144 488.8 151.2 496 160 496L480 496C488.8 496 496 488.8 496 480L496 160C496 151.2 488.8 144 480 144L160 144zM390.7 233.9C398.5 223.2 413.5 220.8 424.2 228.6C434.9 236.4 437.3 251.4 429.5 262.1L307.4 430.1C303.3 435.8 296.9 439.4 289.9 439.9C282.9 440.4 276 437.9 271.1 433L215.2 377.1C205.8 367.7 205.8 352.5 215.2 343.2C224.6 333.9 239.8 333.8 249.1 343.2L285.1 379.2L390.7 234z" />
-                </svg>
-              </span>
+          <ul class="mt-8 space-y-4 text-base font-medium text-text-primary">
+            <li class="flex items-start gap-3">
+              <svg class="h-6 w-6 shrink-0 text-success" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
               <span>คัดลอก Prompt ได้ไม่จำกัด</span>
             </li>
-
-            <!--แถว2-->
-            <li class="flex items-center gap-3">
-              <span class="h-6 w-6 text-green-500">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" fill="currentColor">
-                  <path
-                    d="M480 96C515.3 96 544 124.7 544 160L544 480C544 515.3 515.3 544 480 544L160 544C124.7 544 96 515.3 96 480L96 160C96 124.7 124.7 96 160 96L480 96zM160 144C151.2 144 144 151.2 144 160L144 480C144 488.8 151.2 496 160 496L480 496C488.8 496 496 488.8 496 480L496 160C496 151.2 488.8 144 480 144L160 144zM390.7 233.9C398.5 223.2 413.5 220.8 424.2 228.6C434.9 236.4 437.3 251.4 429.5 262.1L307.4 430.1C303.3 435.8 296.9 439.4 289.9 439.9C282.9 440.4 276 437.9 271.1 433L215.2 377.1C205.8 367.7 205.8 352.5 215.2 343.2C224.6 333.9 239.8 333.8 249.1 343.2L285.1 379.2L390.7 234z" />
-                </svg>
-              </span>
+            <li class="flex items-start gap-3">
+              <svg class="h-6 w-6 shrink-0 text-success" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
               <span>เข้าถึงทุกหมวดในชุมชน</span>
             </li>
             
-            <!--แถว3-->
-            <li class="flex items-center gap-3">
-              <span class="h-6 w-6 text-gray-400">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" fill="currentColor">
-                  <path
-                    d="M480 96C515.3 96 544 124.7 544 160L544 480C544 515.3 515.3 544 480 544L160 544C124.7 544 96 515.3 96 480L96 160C96 124.7 124.7 96 160 96L480 96zM160 144C151.2 144 144 151.2 144 160L144 480C144 488.8 151.2 496 160 496L480 496C488.8 496 496 488.8 496 480L496 160C496 151.2 488.8 144 480 144L160 144zM390.7 233.9C398.5 223.2 413.5 220.8 424.2 228.6C434.9 236.4 437.3 251.4 429.5 262.1L307.4 430.1C303.3 435.8 296.9 439.4 289.9 439.9C282.9 440.4 276 437.9 271.1 433L215.2 377.1C205.8 367.7 205.8 352.5 215.2 343.2C224.6 333.9 239.8 333.8 249.1 343.2L285.1 379.2L390.7 234z" />
-                </svg>
-              </span>
+            <li class="flex items-start gap-3 text-text-muted">
+              <svg class="h-6 w-6 shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
               <span>มีโฆษณาสนับสนุน (แบบไม่กวนใจ)</span>
             </li>
-           
-            <!--แถว4-->
-            <li class="flex items-center gap-3">
-              <span class="h-7 w-7 text-gray-400">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" fill="currentColor">
-                  <path
-                    d="M480 96C515.3 96 544 124.7 544 160L544 480C544 515.3 515.3 544 480 544L160 544C124.7 544 96 515.3 96 480L96 160C96 124.7 124.7 96 160 96L480 96zM160 144C151.2 144 144 151.2 144 160L144 480C144 488.8 151.2 496 160 496L480 496C488.8 496 496 488.8 496 480L496 160C496 151.2 488.8 144 480 144L160 144zM390.7 233.9C398.5 223.2 413.5 220.8 424.2 228.6C434.9 236.4 437.3 251.4 429.5 262.1L307.4 430.1C303.3 435.8 296.9 439.4 289.9 439.9C282.9 440.4 276 437.9 271.1 433L215.2 377.1C205.8 367.7 205.8 352.5 215.2 343.2C224.6 333.9 239.8 333.8 249.1 343.2L285.1 379.2L390.7 234z" />
-                </svg>
-              </span>
+            <li class="flex items-start gap-3 text-text-muted">
+              <svg class="h-6 w-6 shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
               <span>บันทึกรายการโปรด (Bookmark) ได้ 10 รายการ</span>
             </li>
-
-            <!--แถว5-->
-            <li class="flex items-center gap-3">
-              <span class="h-6 w-6 text-gray-400">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" fill="currentColor">
-                  <path
-                    d="M480 96C515.3 96 544 124.7 544 160L544 480C544 515.3 515.3 544 480 544L160 544C124.7 544 96 515.3 96 480L96 160C96 124.7 124.7 96 160 96L480 96zM160 144C151.2 144 144 151.2 144 160L144 480C144 488.8 151.2 496 160 496L480 496C488.8 496 496 488.8 496 480L496 160C496 151.2 488.8 144 480 144L160 144zM390.7 233.9C398.5 223.2 413.5 220.8 424.2 228.6C434.9 236.4 437.3 251.4 429.5 262.1L307.4 430.1C303.3 435.8 296.9 439.4 289.9 439.9C282.9 440.4 276 437.9 271.1 433L215.2 377.1C205.8 367.7 205.8 352.5 215.2 343.2C224.6 333.9 239.8 333.8 249.1 343.2L285.1 379.2L390.7 234z" />
-                </svg>
-              </span>
+            <li class="flex items-start gap-3 text-text-muted">
+              <svg class="h-6 w-6 shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
               <span>ค้นหาไอเดียพื้นฐาน</span>
             </li>
           </ul>
 
-          <button class="mt-6 w-full rounded-lg border border-gray-300 py-2 text-sm hover:bg-gray-50">
-            เริ่มใช้งานฟรี
-          </button>
-          <span class="text-gray-400 flex justify-center pt-2 gap-3 text-xs">
-          ใช้งานได้จริง ไม่บังคับอัปเกรด
-        </span>
+          <div class="mt-auto pt-10">
+            <button @click="startFreePlan" class="w-full cursor-pointer rounded-xl border border-border-primary py-3 text-base font-semibold text-text-primary transition-colors hover:bg-background-hover">
+              เริ่มใช้งานฟรี
+            </button>
+            <div class="mt-4 text-center text-sm font-medium text-text-muted">
+              ใช้งานได้จริง ไม่บังคับอัปเกรด
+            </div>
+          </div>
         </div>
 
-        <!-- Pro -->
-        <div class="relative w-[320px] rounded-2xl border-2 border-blue-600 bg-white p-6 text-left">
-          <span class="absolute -top-3 right-4 rounded-full bg-blue-600 px-3 py-1 text-xs text-white">
+        <div class="relative flex flex-col w-[380px] rounded-3xl border-2 border-primary bg-background-secondary p-8 text-left shadow-md">
+          <span class="absolute -top-4 right-6 rounded-full bg-primary px-5 py-1.5 text-sm font-bold tracking-wide text-white">
             แนะนำ
           </span>
 
-          <span class="text-xs font-semibold text-blue-600">
+          <span class="text-sm font-bold uppercase tracking-wider text-primary">
             PRO WORKFLOW
           </span>
 
-          <div class="mt-3 flex items-end gap-1">
-            <strong class="text-3xl">฿129</strong>
-            <span class="text-sm text-gray-500">/ เดือน</span>
+          <div class="mt-3 flex items-baseline gap-2 text-text-primary">
+            <strong class="text-5xl font-bold">฿129</strong>
+            <span class="text-base font-semibold text-text-secondary">/ เดือน</span>
           </div>
 
-          <ul class="mt-4 space-y-2 text-sm">
-            <li class="text-blue-600">✓ ใช้งานไม่จำกัด</li>
-            <li class="text-blue-600">✓ Bookmark ไม่จำกัด</li>
-            <li class="text-blue-600">✓ สร้าง Collection</li>
-            <li class="text-blue-600">✓ ดูประวัติการใช้งาน</li>
+          <ul class="mt-8 space-y-4 text-base font-medium text-primary">
+            <li class="flex items-start gap-3">
+              <svg class="h-6 w-6 shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+              <span>ใช้งานไม่จำกัด</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="h-6 w-6 shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+              <span>Bookmark ไม่จำกัด</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="h-6 w-6 shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+              <span>สร้าง Collection</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="h-6 w-6 shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+              <span>ดูประวัติการใช้งาน</span>
+            </li>
           </ul>
 
-          <button class="mt-6 w-full rounded-lg bg-blue-600 py-2 text-sm text-white hover:bg-blue-700">
-            อัปเกรดแพ็กเกจ
-          </button>
+          <div class="mt-auto pt-10">
+            <button @click="upgradePlan" class="w-full cursor-pointer rounded-xl bg-primary py-3 text-base font-bold text-white transition-colors hover:bg-primary-hover shadow-sm hover:shadow">
+              อัปเกรดแพ็กเกจ
+            </button>
+            <div class="mt-4 h-[20px]"></div>
+          </div>
         </div>
       </div>
 
-      <!-- Compare table -->
-      <div class="mx-auto mt-16 max-w-3xl rounded-xl border bg-white">
-        <div class="border-b p-4 text-sm font-semibold text-gray-800">
+      <div class="mx-auto mt-20 max-w-4xl overflow-hidden rounded-2xl border border-border-primary bg-background-secondary shadow-sm">
+        <div class="border-b border-border-primary bg-background-primary p-5 text-center text-base font-bold text-text-primary">
           เปรียบเทียบคุณสมบัติ
         </div>
 
-        <div class="grid grid-cols-3 text-sm">
-          <div class="border-b p-4">ค้นหา Prompt</div>
-          <div class="border-b p-4 text-center text-green-500">✓</div>
-          <div class="border-b p-4 text-center text-blue-500">✓</div>
+        <table class="w-full text-base">
+          <tbody>
+            <tr class="border-b border-border-secondary transition-colors hover:bg-background-hover">
+              <td class="w-1/3 p-6 pl-10 text-left font-medium text-text-primary">ค้นหาและคัดลอก Prompt</td>
+              <td class="w-1/3 p-6 text-center text-lg font-bold text-success">✓</td>
+              <td class="w-1/3 p-6 text-center text-lg font-bold text-primary">✓</td>
+            </tr>
 
-          <div class="border-b p-4">สร้าง Collection</div>
-          <div class="border-b p-4 text-center text-gray-400">–</div>
-          <div class="border-b p-4 text-center text-blue-500">✓</div>
+            <tr class="border-b border-border-secondary transition-colors hover:bg-background-hover">
+              <td class="w-1/3 p-6 pl-10 text-left font-medium text-text-primary">การเข้าถึงหมวดหมู่ชุมชน</td>
+              <td class="w-1/3 p-6 text-center text-lg font-bold text-success">✓</td>
+              <td class="w-1/3 p-6 text-center text-lg font-bold text-primary">✓</td>
+            </tr>
 
-          <div class="p-4">Bookmark</div>
-          <div class="p-4 text-center text-gray-500">10 รายการ</div>
-          <div class="p-4 text-center text-blue-500">ไม่จำกัด</div>
-        </div>
+            <tr class="border-b border-border-secondary transition-colors hover:bg-background-hover">
+              <td class="w-1/3 p-6 pl-10 text-left font-medium text-text-primary">บันทึกรายการโปรด (Bookmark)</td>
+              <td class="w-1/3 p-6 text-center font-medium text-text-secondary">10 รายการ</td>
+              <td class="w-1/3 p-6 text-center font-bold text-primary">ไม่จำกัด</td>
+            </tr>
+
+            <tr class="border-b border-border-secondary transition-colors hover:bg-background-hover">
+              <td class="w-1/3 p-6 pl-10 text-left font-medium text-text-primary">สร้าง Collection ส่วนตัว</td>
+              <td class="w-1/3 p-6 text-center text-lg font-bold text-text-muted">–</td>
+              <td class="w-1/3 p-6 text-center text-lg font-bold text-primary">✓</td>
+            </tr>
+
+            <tr class="border-b border-border-secondary transition-colors hover:bg-background-hover">
+              <td class="w-1/3 p-6 pl-10 text-left font-medium text-text-primary">ดูประวัติการใช้งาน</td>
+              <td class="w-1/3 p-6 text-center text-lg font-bold text-text-muted">–</td>
+              <td class="w-1/3 p-6 text-center text-lg font-bold text-primary">✓</td>
+            </tr>
+
+            <tr class="border-b border-border-secondary transition-colors hover:bg-background-hover">
+              <td class="w-1/3 p-6 pl-10 text-left font-medium text-text-primary">ประสบการณ์ใช้งาน</td>
+              <td class="w-1/3 p-6 text-center font-medium text-text-secondary">มีโฆษณาสนับสนุน</td>
+              <td class="w-1/3 p-6 text-center font-bold text-primary">ไม่มีโฆษณา 100%</td>
+            </tr>
+
+          </tbody>
+        </table>
       </div>
 
-      <!-- Footer note -->
-      <div class="mt-8 text-xs text-gray-400">
+      <div class="mt-10 text-sm font-medium text-text-muted">
         สามารถยกเลิกแพ็กเกจได้ทุกเมื่อ · ไม่มีค่าใช้จ่ายแอบแฝง
       </div>
     </section>
