@@ -1,75 +1,36 @@
-# Nuxt Minimal Starter
+# Nuxt Prompt Frontend
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Frontend for PromptGo built with Nuxt 4.
 
-## Setup
+## Local development
 
-Make sure to install dependencies:
+1. Copy `.env.example` to `.env`
+2. Install packages:
 
 ```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
 bun install
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+3. Start the dev server:
 
 ```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
+bunx nuxi dev --port 3000 --no-fork
 ```
 
-## Production
+`--no-fork` is recommended on this Windows setup to avoid `spawn EPERM`.
 
-Build the application for production:
+## Environment
+
+```env
+PORT=3000
+NUXT_PUBLIC_API_BASE=http://localhost:3001
+```
+
+## With Docker
+
+The frontend is started by the backend compose file:
 
 ```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
+cd ../nuxt-prompt-api
+docker compose up -d --build
 ```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.

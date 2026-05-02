@@ -6,6 +6,7 @@ import { useRoute } from 'vue-router';
 import NavigationSideBar from './NavigationSideBar.vue';
 import NavigationTopBar from './NavigationTopBar.vue';
 import ScrollToTop from '~/components/Shared/ScrollToTop.vue';
+import ApiStatus from '~/components/Shared/ApiStatus.vue';
 
 const isSidebarOpen = ref(false);
 const toggleSidebar = () => isSidebarOpen.value = !isSidebarOpen.value;
@@ -28,6 +29,7 @@ watch(() => route.path, () => closeSidebar());
         <div class="xl:hidden flex items-center justify-between px-4 pt-4 pb-2 bg-white">
           <div class="flex items-center gap-3">
             <span class="text-lg font-bold text-blue-600">PromptGo</span>
+            <ApiStatus />
           </div>
 
           <div class="w-8 h-8 rounded-full bg-gray-200 overflow-hidden border border-gray-100">

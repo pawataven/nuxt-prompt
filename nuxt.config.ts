@@ -5,6 +5,10 @@ export default defineNuxtConfig({
   
   devtools: { enabled: true },
 
+  devServer: {
+    port: 3000,
+  },
+
   modules: [
     '@nuxt/image',
     '@nuxt/icon',
@@ -22,6 +26,9 @@ export default defineNuxtConfig({
   },
 
   vite: {
+    server: {
+      strictPort: true,
+    },
     plugins: [tailwindcss()],
     build: {
       assetsInlineLimit: 4096
@@ -38,7 +45,7 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      apiBase: "http://localhost:3001"
+      apiBase: process.env.NUXT_PUBLIC_API_BASE || "http://localhost:3001"
     }
   },
   
