@@ -46,6 +46,13 @@ const menuItems: MenuItem[] = [
     icon: 'M2 5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5zm0 5h20',
     type: 'outline'
   }
+  ,
+  {
+    label: 'Test Backend Categories',
+    to: '/categories',
+    icon: 'M3 5h18M3 12h18M3 19h18',
+    type: 'outline'
+  }
 ];
 
 const isProfileMenuOpen = ref(false);
